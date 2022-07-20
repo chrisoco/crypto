@@ -1,0 +1,6 @@
+Coinmarketcap API calls:
+
+
+
+
+curl -H "X-CMC_PRO_API_KEY: 601ede15-0fae-499d-8fd5-9e3a826d4914" -H "Accept: application/json" -d "start=1&limit=5000&convert=USD" -G https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
