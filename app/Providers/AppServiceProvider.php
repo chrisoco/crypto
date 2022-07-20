@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Http::macro('cmc', function () {
+            return Http::withHeaders([
+                'Accepts'           => 'application/json',
+                'X-CMC_PRO_API_KEY' => config('app.api_cmc_key'),
+            ])->baseUrl('https://pro-api.coinmarketcap.com/v1/cryptocurrency');
+        });
     }
 }
