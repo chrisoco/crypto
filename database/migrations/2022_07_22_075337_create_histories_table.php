@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('coin_id')->constrained();
+            $table->foreignId('quote_id')->constrained();
             $table->double('stk', 20, 10);
-            $table->double('price_single', 30, 10);
-            $table->double('price_total', 30, 10);
             $table->boolean('bought')->default(true);
 
             $table->timestamps();
