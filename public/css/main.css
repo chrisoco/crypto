@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: #eee;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    overflow: hidden;
+    z-index: 5;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}

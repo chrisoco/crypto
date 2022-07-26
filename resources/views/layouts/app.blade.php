@@ -22,13 +22,21 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    @yield('custom-style')
 </head>
 <body>
     <div id="app">
 
+        @include('layouts.navbar')
+
         <main class="container-fluid">
             @yield('content')
         </main>
+
+        <footer class="footer bg-primary d-flex justify-content-center">
+            ©2022 C.O'Connor
+        </footer>
+
     </div>
 </body>
 </html>
