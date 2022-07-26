@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top mb-3">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('portfolio') }}">Crypto</a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@
                                 <a class="dropdown-item" href="{ { route('profile') }}">Profile</a>
                             </li>
                             <li>
-                                <form id="logout-form" action="{ { route('logout') }}" method="POST">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                     <input type="submit" class="dropdown-item" value="{{ __('Logout') }}">
                                 </form>

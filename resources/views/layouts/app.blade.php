@@ -14,15 +14,25 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/special-button.css') }}">
+
+    <style>
+        @font-face {
+            font-family: Dancing Script;
+            src: url('{{ asset('/fonts/Dancing Script.ttf') }}');
+        }
+    </style>
+
     @yield('custom-style')
+
 </head>
 <body>
     <div id="app">
