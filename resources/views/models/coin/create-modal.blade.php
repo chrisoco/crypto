@@ -12,8 +12,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
-                    <input type="submit">
+                <form method="POST" action="#">
+                    @csrf
+                    @method('POST')
+
+
+
+
+                    <input class="btn btn-block btn-primary mt-3" type="submit" value="Add Coin" />
                 </form>
             </div>
             <div class="modal-footer d-flex justify-content-center">
