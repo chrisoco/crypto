@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,10 +25,31 @@ class DatabaseSeeder extends Seeder
             'email' => 'tanksuo@gmail.com'
         ])->create();
 
+        DB::table('exchanges')->insert([
+            [
+                'name' => 'Binance',
+                'img' => 'binance.png',
+            ],
+            [
+                'name' => 'Coinbase',
+                'img' => 'coinbase.png',
+            ],
+            [
+                'name' => 'CoinGecko',
+                'img' => 'coingecko.png',
+            ],
+            [
+                'name' => 'Kucoin',
+                'img' => 'kucoin.png',
+            ],
+            
+
+        ]);
+
         // \App\Models\User::factory(10)->create();
 
         $this->call([
-           // UserSeeder::class,
+
         ]);
 
     }

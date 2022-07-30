@@ -13,18 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('coins', function (Blueprint $table) {
+        Schema::create('exchanges', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cmc_id')->nullable()->unique();
             $table->string('name');
-            $table->string('symbol');
-            $table->string('slug');
-            $table->integer('rank');
+            $table->string('img');
 
-            $table->foreignId('quote_id')->constrained();
-            $table->foreignId('exchange_id')->constrained();
-
-            $table->timestamps();
         });
     }
 
@@ -35,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coins');
+        Schema::dropIfExists('table_exchanges');
     }
 };
