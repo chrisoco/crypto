@@ -34,5 +34,18 @@
             <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
         </div>
 
+        
+
+
+    <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <option selected>Select ...</option>
+            @foreach(App\Models\Exchange::all() as $exchange)
+                <option value="{{ $exchange->id }}">{{ $exchange->name }}</option>
+            @endforeach
+        </select>
+        <label for="floatingSelect">Works with selects</label>
+    </div>
+
     </div>
 @endsection
