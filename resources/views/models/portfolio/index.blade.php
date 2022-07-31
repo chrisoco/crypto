@@ -33,6 +33,13 @@
         <!-- List of Coins -->
 
         <!-- List of Fav. -->
+
+        <!-- FORM -->
+        <!-- TODO: 
+        https://getbootstrap.com/docs/5.2/forms/input-group/ 
+        https://getbootstrap.com/docs/5.2/forms/floating-labels/
+        https://getbootstrap.com/docs/5.2/forms/validation/
+        -->
         <x-forms.input.text name="name" title="Name" value="{{ old('name') }}" placeholder="Bitcoin" />
         <x-forms.input.text name="symbol" title="Symbol" value="{{ old('symbol') }}" placeholder="BTC" />
         <x-forms.input.text name="slug" title="Slug" value="{{ old('slug') }}" placeholder="??" required="false"/>
