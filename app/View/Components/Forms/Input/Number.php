@@ -74,7 +74,7 @@ class Number extends Component
      * @param $placeholder
      * @param $required
      */
-    public function __construct($name, $title, $value, $min, $max, $step, $placeholder, $required = 'true')
+    public function __construct($name, $title, $value, $min, $max, $step, $placeholder = '', $required = 'true')
     {
         $this->name        = $name;
         $this->title       = $title;

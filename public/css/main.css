@@ -20,7 +20,10 @@ body {
 }
 .h1-title {
     text-align: center !important;
-    font-family: 'Dancing Script', cursive;
+    font-family: "Dancing Script", cursive;
     font-size: 60px;
     margin-bottom: 10px;
+}
+#app {
+    margin-bottom: 50px;
 }
