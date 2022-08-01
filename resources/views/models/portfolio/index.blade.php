@@ -53,7 +53,7 @@
 
                 <!-- Purchase -->    
 
-                <x-forms.input.number name="stk" title="Amount" value="{{ old('stk') }}" min="0" max="10000000000" step=".0000000000" placeholder="0.0" required="false" />
+                <x-forms.input.number name="stk" title="Amount" value="{{ old('stk') }}" min="0" max="10000000000" step=".0000000001" placeholder="0.0000000001" required="false" />
                 
                 <x-forms.input.select-ex />
 
