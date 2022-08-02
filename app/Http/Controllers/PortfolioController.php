@@ -43,6 +43,12 @@ class PortfolioController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
+
+        // TODO: Create Model and fetch Data from Coin API ?
+        // ?Maybe just add Coin and impl. Button to fetch all Data at a later stage.
+        // !Recheck Coin API Output on fetch by name // what is a symbol/slug
+
+
         $validated = $validator->validated();
 
         ddd($validated);
