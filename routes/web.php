@@ -21,6 +21,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/portfolio', [App\Http\Controllers\PortfolioController::class, 'index'])->name('portfolio');
 
+    Route::post('/portfolio/coin/store', [App\Http\Controllers\PortfolioController::class, 'storeCoin'])->name('portfolio.coin.store');
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

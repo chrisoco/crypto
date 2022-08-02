@@ -33,27 +33,42 @@
         <!-- List of Coins -->
 
         <!-- List of Fav. -->
+
+        <!-- FORM -->
+        <!-- TODO: 
+        https://getbootstrap.com/docs/5.2/forms/input-group/ 
+        https://getbootstrap.com/docs/5.2/forms/floating-labels/
+        https://getbootstrap.com/docs/5.2/forms/validation/
+        -->
+
+    <form method="POST" action="{{ route('portfolio.coin.store') }}" novalidate>
+        @csrf
+        @method('POST')
+
         <x-forms.input.text name="name" title="Name" value="{{ old('name') }}" placeholder="Bitcoin" />
         <x-forms.input.text name="symbol" title="Symbol" value="{{ old('symbol') }}" placeholder="BTC" />
         <x-forms.input.text name="slug" title="Slug" value="{{ old('slug') }}" placeholder="??" required="false"/>
 
+        <!-- Optional Purchase Amount: -->
         <button type="button" class="glow-on-hover btn btn-success btn-lg mx-auto d-block my-3"
-        data-bs-toggle="collapse" data-bs-target="#collapseExample" 
-        aria-expanded="false" aria-controls="collapseExample">Show Purchase Details</button>
+        data-bs-toggle="collapse" data-bs-target="#collapseExtraDetails" 
+        aria-expanded="{{ $errors->any() && old('stk') > 0 ? 'true' : 'false' }}" aria-controls="collapseExtraDetails">Show Purchase Details</button>
 
-        <div class="collapse" id="collapseExample">
+        <div class="collapse @if($errors->any()) @error('stk') show @enderror @error('sel_ex_id') show @enderror @endif" id="collapseExtraDetails">
             <div class="card card-body">
 
                 <!-- Purchase -->    
 
-                <x-forms.input.number name="stk" title="Amount" value="{{ old('stk') }}" min="0" max="10000000000" step=".0000000000" placeholder="0.0" required="false" />
+                <x-forms.input.number name="stk" title="Amount" value="{{ old('stk') }}" min="0" max="10000000000" step=".0000000001" placeholder="0.000000001" required="false" />
                 
                 <x-forms.input.select-ex />
 
             </div>
         </div>
 
+        <button class="glow-on-hover btn btn-success btn-lg mx-auto d-block mb-3" type="submit">Add Coin</button>
 
+    </form>
         
     </div>
 @endsection
