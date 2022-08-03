@@ -29,6 +29,6 @@ class Exchange extends Model
      */
     public function coins()
     {
-        return $this->hasMany('App\Models\Coin');
+        return $this->hasMany(Portfolio::class);
     }
 }

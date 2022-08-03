@@ -41,14 +41,6 @@ class Coin extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function exchange()
-    {
-        return $this->belongsTo(Exchange::class);
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function history()

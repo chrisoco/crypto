@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('symbol');
             $table->string('slug')->nullable();
-            $table->integer('rank');
+            $table->integer('rank')->nullable();
 
-            $table->foreignId('quote_id')->constrained();
-            $table->foreignId('exchange_id')->constrained();
+            $table->foreignId('quote_id')->nullable()->constrained();
 
             $table->timestamps();
         });

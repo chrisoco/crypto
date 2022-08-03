@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property User $user
  * @property Coin $coin
+ * @property Exchange $exchange
  */
 class Portfolio extends Model
 {
@@ -27,7 +28,7 @@ class Portfolio extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'coin_id', 'stk', 'watchlist', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'coin_id', 'exchange_id', 'stk', 'watchlist', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -43,5 +44,13 @@ class Portfolio extends Model
     public function coin()
     {
         return $this->belongsTo(Coin::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function exchange()
+    {
+        return $this->belongsTo(Exchange::class);
     }
 }

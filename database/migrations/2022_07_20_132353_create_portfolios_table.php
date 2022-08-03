@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained();
             $table->foreignId('coin_id')->constrained();
+            $table->foreignId('exchange_id')->constrained()->nullable();
 
             $table->double('stk', 20, 10)->default(0);
             $table->boolean('watchlist')->default(false);
