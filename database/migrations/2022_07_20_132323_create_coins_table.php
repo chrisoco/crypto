@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cmc_id')->nullable()->unique();
             $table->string('name');
-            $table->string('symbol');
+            $table->string('symbol')->unique();
             $table->integer('rank')->nullable();
 
             $table->foreignId('quote_id')->nullable()->constrained();

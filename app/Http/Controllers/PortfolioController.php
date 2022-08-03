@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coin;
 use App\Models\Exchange;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,6 +23,10 @@ class PortfolioController extends Controller
      */
     public function storeCoin(Request $request)
     {
+
+        $request->merge([
+            'symbol' => strtoupper($request->input('symbol'))
+        ]);
 
         $validator = Validator::make($request->all(), [
             'name'      => 'required',
@@ -50,24 +55,28 @@ class PortfolioController extends Controller
 
         $validated = $validator->validated();
 
-        $coin = Coin::firstOrNew([
-            'name'   => $validated['name'],
-            'symbol' => $validated['symbol']
-        ]);
+        $coin = Coin::where('symbol', $validated['symbol'])->first();
 
-        // $coin->save();
+        if(is_null($coin)) {
+            $coin = Coin::create($validated);
+        }
+
 
         // Make Portfolio
         return ddd($validated);
 
-        if($request->input('stk')) {
+        // TODO: Validate if User already has Coin associated
+        //? Maybe Allow it so User can have same Coin from Multiple Exchanges?
 
+        if(is_null($request->input('stk'))) {
+
+            $p = Portfolio::create();
             
             
         }
 
-        $coin->fav = '';
-        $coin->exchange = '';
+        //! Test maybe even test in artisan tinker
+        $p->exchange()->attach(Exchange::find($validated['sel_ex_id']));
 
 
         ddd($validated);

@@ -41,7 +41,7 @@
         https://getbootstrap.com/docs/5.2/forms/validation/
         -->
 
-    <form method="POST" action="{{ route('portfolio.coin.store') }}" novalidate>
+    <form method="POST" action="{{ route('portfolio.coin.store') }}" novalidate autocomplete="off">
         @csrf
         @method('POST')
 
