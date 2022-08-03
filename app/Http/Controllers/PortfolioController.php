@@ -26,7 +26,6 @@ class PortfolioController extends Controller
         $validator = Validator::make($request->all(), [
             'name'      => 'required',
             'symbol'    => 'required',
-            'slug'      => 'nullable',
             'stk'       => 'nullable|numeric|min:0',
             'sel_ex_id' => 'nullable|numeric',
         ]);
@@ -56,8 +55,7 @@ class PortfolioController extends Controller
             'symbol' => $validated['symbol']
         ]);
 
-        $coin->slug = $validated['slug'];
-        $coin->save();
+        // $coin->save();
 
         // Make Portfolio
         return ddd($validated);

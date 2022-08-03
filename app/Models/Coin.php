@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $cmc_id
  * @property string $name
  * @property string $symbol
- * @property string $slug
  * @property integer $rank
  * @property string $created_at
  * @property string $updated_at
@@ -30,7 +29,7 @@ class Coin extends Model
     /**
      * @var array
      */
-    protected $fillable = ['quote_id', 'cmc_id', 'name', 'symbol', 'slug', 'rank', 'created_at', 'updated_at'];
+    protected $fillable = ['quote_id', 'cmc_id', 'name', 'symbol', 'rank', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
