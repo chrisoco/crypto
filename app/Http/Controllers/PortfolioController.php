@@ -62,7 +62,13 @@ class PortfolioController extends Controller
         }
 
 
-        // Make Portfolio
+        // Get Portfolio if exists
+
+        // Else Create -> basicly the same as with Coin above
+
+        // API CALL to create Quote for coin :)
+
+
         return ddd($validated);
 
         // TODO: Validate if User already has Coin associated
