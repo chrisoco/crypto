@@ -24,6 +24,12 @@ class PortfolioController extends Controller
     public function storeCoin(Request $request)
     {
 
+        $exchange_id  = null;
+        $coin         = null;
+        $portfolio    = null;
+        $stk          = 0;
+        $watchlist    = true;
+
         $request->merge([
             'symbol' => strtoupper($request->input('symbol'))
         ]);
@@ -41,6 +47,11 @@ class PortfolioController extends Controller
                 $validator->errors()->add('sel_ex_id', 'Choose a valid Exchange...');
                 return back()->withErrors($validator)->withInput();
             }
+
+            // Get Exchange ID for Portfolio && ammount
+            $exchange_id = Exchange::find($request->input('sel_ex_id'))->id;
+            $stk = $request->input('stk');
+            $watchlist = false;
             
         }
 
@@ -63,11 +74,25 @@ class PortfolioController extends Controller
 
 
         // Get Portfolio if exists
+        $portfolio = Portfolio
+            ::where('user_id', auth()->user->id)
+            ->where('coin_id', $coin->id)
+            ->where('exchange_id', $exchange_id)
+            ->first();
 
         // Else Create -> basicly the same as with Coin above
+        if(is_null($portfolio)) {
+            $portfolio = Portfolio::create([
+                'user_id'     => auth()->user()->id,
+                'coin_id'     => $coin->id,
+                'exchange_id' => $exchange_id,
+                'stk'         => $stk,
+                'watchlist'   => $watchlist,
+            ]);
+        }
 
         // API CALL to create Quote for coin :)
-
+        
 
         return ddd($validated);
 

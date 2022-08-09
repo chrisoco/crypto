@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('exchange_id')->constrained()->nullable();
 
             $table->double('stk', 20, 10)->default(0);
-            $table->boolean('watchlist')->default(false);
+            $table->boolean('watchlist')->default(true);
 
             $table->timestamps();
         });
