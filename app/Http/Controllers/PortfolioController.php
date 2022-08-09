@@ -72,7 +72,7 @@ class PortfolioController extends Controller
             $coin = Coin::create($validated);
         }
 
-
+        //* Validate if User already has Coin associated
         // Get Portfolio if exists
         $portfolio = Portfolio
             ::where('user_id', auth()->user->id)
@@ -89,29 +89,27 @@ class PortfolioController extends Controller
                 'stk'         => $stk,
                 'watchlist'   => $watchlist,
             ]);
+        } else {
+
+            // Update STK on Coin
+            $portfolio->update([
+                'stk' => $stk
+            ])->save();
+            
+
+            //! Test maybe even test in artisan tinker
+            $portfolio->exchange()->attach(Exchange::find($validated['sel_ex_id']));
+
         }
 
         // API CALL to create Quote for coin :)
-        
+        // TODO: Maybe Create Button to Fetch all Coin Data.
 
         return ddd($validated);
 
-        // TODO: Validate if User already has Coin associated
-        //? Maybe Allow it so User can have same Coin from Multiple Exchanges?
 
-        if(is_null($request->input('stk'))) {
-
-            $p = Portfolio::create();
-            
-            
-        }
-
-        //! Test maybe even test in artisan tinker
-        $p->exchange()->attach(Exchange::find($validated['sel_ex_id']));
-
-
-        ddd($validated);
-
+        // TODO: Create Frontend to View current Portfolio  
+        // TODO: && add Button to Update all quote from each Coin
 
     }
 }

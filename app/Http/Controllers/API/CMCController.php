@@ -20,7 +20,16 @@ class CMCController extends Controller
     }
 
 
+    /**
+     * 
+     */
+    public function getQuotesFromCoins()
+    {
 
+
+
+        return null;
+    }
 
 
 
